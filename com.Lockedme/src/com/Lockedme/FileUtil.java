@@ -27,7 +27,7 @@ public class FileUtil {
 	}
 
 	public void addFile(String fileName) throws IOException {
-		File f = new File("F:\\FileIO\\Lockedme\\" + fileName + ".txt");
+		File f = new File("F:\\FileIO\\Lockedme.com\\" + fileName + ".txt");
 		f.createNewFile();
 	}
 
@@ -36,7 +36,7 @@ public class FileUtil {
 		files = getFiles();
 		for (FileDetail file : files) {
 			if (file.getFileName().startsWith(fileName)) {
-				File f = new File("F:\\FileIO\\Lockedme\\" + file.getFileName());
+				File f = new File("F:\\FileIO\\Lockedme.com\\" + file.getFileName());
 				f.delete();
 				isDeleted = true;
 				break;

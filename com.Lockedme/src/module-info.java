@@ -6,4 +6,5 @@
  *
  */
 module com.Lockedme {
+	requires log4j;
 }

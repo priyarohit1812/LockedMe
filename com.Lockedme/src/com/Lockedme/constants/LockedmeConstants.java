@@ -26,8 +26,31 @@ public class LockedmeConstants {
 	
 	// Messages
 	public static final String ENTER_OPTION_CODE = "Enter the choice";
+	public static final String EXIT_MESSAGE = "Good bye!";
+	public static final String OPERATE_OPTION = "Available options: ";
+	public static final String FILENAME = "Enter the filename";
 	
 	//Success Messages
+	public static final String FILE_EXISTED_MESSAGE = "file existed";
+	public static final String FILE_NOTEXISTED_MESSAGE = "file does not existed";
 	
 	//Error Messages
+	public static final String DEFAULT_MESSAGE = "Wrong choice, Enter correct option";
+	
+	//Operation Options
+	public static final int ADD_FILE_CODE = 1;
+	public static final String ADD_FILE_OPTION = "Add file";
+	public static final int DELETE_FILE_CODE = 2;
+	public static final String DELETE_FILE_OPTION = "Delete file";
+	public static final int SEARCH_FILE_CODE = 3;
+	public static final String SEARCH_FILE_OPTION = "Search file";
+	public static final int BACK_HOME_CODE = 4;
+	public static final String BACK_HOME_OPTION = "Back to Home";
+	
+	public static final String[] OPERATE_OPRATION = new String[] {
+		String.format("%d) %s", LockedmeConstants.ADD_FILE_CODE, LockedmeConstants.ADD_FILE_OPTION),
+		String.format("%d) %s", LockedmeConstants.DELETE_FILE_CODE, LockedmeConstants.DELETE_FILE_OPTION ),
+		String.format("%d) %s", LockedmeConstants.SEARCH_FILE_CODE, LockedmeConstants.SEARCH_FILE_OPTION),
+		String.format("%d) %s", LockedmeConstants.BACK_HOME_CODE, LockedmeConstants.BACK_HOME_OPTION)
+			};
 }

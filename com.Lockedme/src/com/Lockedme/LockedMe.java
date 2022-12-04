@@ -4,13 +4,18 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.Lockedme.constants.LockedmeConstants;
 
 public class LockedMe {
 
+	static Logger log = Logger.getLogger(LockedMe.class);
+
 	FileUtil util = new FileUtil();
 
 	public static void main(String[] args) {
+		log.info("Application Started");
 		LockedMe lockedMe = new LockedMe();
 		lockedMe.AppWelcomeMessage();
 		lockedMe.HomeOptions();
@@ -57,11 +62,13 @@ public class LockedMe {
 				OperationOptions();
 				break;
 			case LockedmeConstants.EXIT_CODE:
-				System.out.println("Good Bye!");
+				System.out.println(
+						String.format("%s:%s", LockedmeConstants.EXIT_MESSAGE, LockedmeConstants.NEW_LINE_CHAR));
 				break;
 
 			default:
-				System.out.println("Wrong choice, Enter correct option ");
+				System.out.println(
+						String.format("%s:%s", LockedmeConstants.DEFAULT_MESSAGE, LockedmeConstants.NEW_LINE_CHAR));
 			}
 
 		} while (ch != LockedmeConstants.OPERATE_FILE_CODE && ch != LockedmeConstants.EXIT_CODE);
@@ -71,53 +78,57 @@ public class LockedMe {
 	void OperationOptions() {
 		int ch;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\n Available options: ");
+		System.out.println(String.format("%s:%s", LockedmeConstants.OPERATE_OPTION, LockedmeConstants.NEW_LINE_CHAR));
 		do {
-			System.out.println("1.Add file");
-			System.out.println("2.Delete file");
-			System.out.println("3.Search file");
-			System.out.println("4.Back");
-			System.out.println("Enter the choice:\n");
+			System.out.println(LockedmeConstants.NEW_LINE_CHAR);
+			for (String option : LockedmeConstants.OPERATE_OPRATION) {
+				System.out.println(option);
+			}
+
+			System.out.println(
+					String.format("%s:%s", LockedmeConstants.ENTER_OPTION_CODE, LockedmeConstants.NEW_LINE_CHAR));
 			ch = sc.nextInt();
 
 			switch (ch) {
-			case 1:
+			case LockedmeConstants.ADD_FILE_CODE:
 				String fileName;
-				System.out.println("Enter the filename");
+				System.out.println(String.format("%s:%s", LockedmeConstants.FILENAME, LockedmeConstants.NEW_LINE_CHAR));
 				fileName = sc.next();
 				try {
 					util.addFile(fileName);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					log.error("Failed to add file", e);
 				}
 				break;
 
-			case 2:
+			case LockedmeConstants.DELETE_FILE_CODE:
 				String fileName1;
-				System.out.println("Enter the filename");
+				System.out.println(String.format("%s:%s", LockedmeConstants.FILENAME, LockedmeConstants.NEW_LINE_CHAR));
 				fileName1 = sc.next();
 				util.deletFile(fileName1);
 				break;
 
-			case 3:
+			case LockedmeConstants.SEARCH_FILE_CODE:
 				String fileName2;
-				System.out.println("Enter the filename");
+				System.out.println(String.format("%s:%s", LockedmeConstants.FILENAME, LockedmeConstants.NEW_LINE_CHAR));
 				fileName2 = sc.next();
 				if (util.search(fileName2)) {
-					System.out.println("File is existed");
+					System.out.println(String.format("%s%s", LockedmeConstants.FILE_EXISTED_MESSAGE,
+							LockedmeConstants.NEW_LINE_CHAR));
 				} else {
-					System.out.println("File is not existed");
+					System.out.println(String.format("%s%s", LockedmeConstants.FILE_NOTEXISTED_MESSAGE,
+							LockedmeConstants.NEW_LINE_CHAR));
 				}
 
 				break;
 
-			case 4:
+			case LockedmeConstants.BACK_HOME_CODE:
 				HomeOptions();
 				break;
 
 			default:
-				System.out.println("Wrong choice, Enter correct option ");
+				System.out.println(
+						String.format("%s:%s", LockedmeConstants.DEFAULT_MESSAGE, LockedmeConstants.NEW_LINE_CHAR));
 			}
 
 		} while (ch != 4);
