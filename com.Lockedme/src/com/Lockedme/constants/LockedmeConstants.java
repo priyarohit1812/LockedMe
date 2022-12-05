@@ -21,6 +21,7 @@ public class LockedmeConstants {
 			String.format("%d) %s", LockedmeConstants.EXIT_CODE, LockedmeConstants.EXIT_OPTION) };
 	
 	// Common
+	public static final String ROOT_PATH = "F:\\FileIO\\Lockedme\\";
 	public static final String NEW_LINE_CHAR = "\n";
 	public static final String TAB_CHAR = "\t";
 	
@@ -31,11 +32,18 @@ public class LockedmeConstants {
 	public static final String FILENAME = "Enter the filename";
 	
 	//Success Messages
-	public static final String FILE_EXISTED_MESSAGE = "file existed";
-	public static final String FILE_NOTEXISTED_MESSAGE = "file does not existed";
+	public static final String FILE_EXISTED_MESSAGE = "File found.";
+	public static final String FILE_ADD_MESSAGE = "File created successfully";
+	public static final String DELETE_MESSAGE = "File deleted successfully.";
 	
 	//Error Messages
-	public static final String DEFAULT_MESSAGE = "Wrong choice, Enter correct option";
+	public static final String DEFAULT_MESSAGE = "Wrong choice, Enter correct option.";
+	public static final String FILE_NOTEXISTED_MESSAGE = "File does not existed.";
+	public static final String PATH_NOTEXIST_MESSAGE = "Path does not exists.";
+	public static final String FOLDER_EMPTY_MESSAGE = "Folder is empty.";
+	public static final String ADD_ERROR_MESSAGE = "Failed to add file.";
+	public static final String DELETE_ERROR_MESSAGE = "Failed to delete file.";
+	public static final String SEARCH_ERROR_MESSAGE = "Failed to search file.";
 	
 	//Operation Options
 	public static final int ADD_FILE_CODE = 1;
